@@ -33,15 +33,18 @@ print_number: ; prints number in r12 register
   mov r15, 0
   number_loop:
   
-  mov rax, r14
+  ; r14%10 -> rdx
+  ; r14/10 -> rax
+  mov rax, r14  
   mov rbx, 10
   mov rdx, 0
   div rbx
 
-  mov r14, rax ; r 14 get replaced with the result of the division
+  ; r14 = rax
+  mov r14, rax 
 
   push rdx
-  inc r15
+  inc r15 ; i++
 
   cmp rax, 0
   jz print_loop
@@ -51,17 +54,19 @@ print_number: ; prints number in r12 register
   pop rdx
   mov r13, rdx
   add r13, '0'
-  mov [number+0], r13
+  mov [number+0], r13 ; numberBuffer[0] = r13
 
-  mov rax, 1        
-  mov rdi, 1    
+  mov rax, 1  ; write     
+  mov rdi, 1  ; standard out
   mov rsi, number
   mov rdx, number_len
   syscall
 
-  dec r15
+  ; if (r15 != 0) goto print_loop
+  ; else return
+  dec r15 ; i--
   cmp r15, 0
-  jz return
+  jz return 
   jmp print_loop
 
   return:
