@@ -1,3 +1,5 @@
+; nasm -f elf64 -o bin/hello-world.o hello-world.asm && ld -o bin/hello-world bin/hello-world.o && ./bin/hello-world
+
 global _start
 
 section .text
@@ -14,7 +16,7 @@ _start:
   syscall           ; );
 
 section .rodata
-  msg: db "Hello, world! dfgjdgjklkgrtruirkjfldgdjfg", 10 ; string
+  msg: db "Hello, world!", 10 ; string
   msglen: equ $ - msg ; length of string
 
 

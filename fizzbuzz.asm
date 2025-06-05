@@ -1,4 +1,4 @@
-; nasm -f elf64 -o fizzbuzz.o fizzbuzz.asm && ld -o fizzbuzz fizzbuzz.o && ./fizzbuzz
+; nasm -f elf64 -o bin/fizzbuzz.o fizzbuzz.asm && ld -o bin/fizzbuzz bin/fizzbuzz.o && ./bin/fizzbuzz
 
 global _start
 
