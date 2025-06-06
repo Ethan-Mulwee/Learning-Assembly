@@ -120,7 +120,7 @@ my_loop:
   next:
   call print_newline
   inc r12
-  cmp r12, 100
+  cmp r12, 1000
   jb my_loop
 
   exit:
